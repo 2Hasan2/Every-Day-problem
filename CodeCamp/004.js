@@ -1,18 +1,17 @@
-function largestPalindromProduct(n) {
-    let j = i = +"9".repeat(n);
-    while (j >= 1) {
-        if (isPolindrom(i * j)) {
-            break;
-        } else {
+function largestPalindromeProduct(n) {
+    const isPalindrome = (num) => num.toString() === num.toString().split("").reverse().join("");
+
+    let largestPalindrome = 0;
+    let i = Math.pow(10, n) - 1;
+
+    while (i > 0) {
+        let j = i;
+        while (j > 0) {
+            const product = i * j;
+            largestPalindrome = product > largestPalindrome && isPalindrome(product) ? product : largestPalindrome;
             j--;
         }
+        i--;
     }
-    return i * j;
-}
-
-console.log(largestPalindromProduct(6));
-
-function isPolindrom(num) {
-    let ReNum = +num.toString().split('').reverse().join('');
-    return num == ReNum;
+    return largestPalindrome;
 }

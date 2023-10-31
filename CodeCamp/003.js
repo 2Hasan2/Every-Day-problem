@@ -1,5 +1,6 @@
-function largestPrimeFactor(n) {
-    let i = n - 1;
-    while (i-- <= n) if (n % i == 0) return i;
+function largestPrimeFactor(number) {
+    let i = 2;
+    while (i <= number) (number % i === 0) ? number /= i : i++;
+    return i;
 }
-console.log(largestPrimeFactor(100));
+console.log(largestPrimeFactor(13195));
