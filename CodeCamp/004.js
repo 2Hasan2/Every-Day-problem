@@ -1,9 +1,7 @@
 function largestPalindromeProduct(n) {
     const isPalindrome = (num) => num.toString() === num.toString().split("").reverse().join("");
-
     let largestPalindrome = 0;
     let i = Math.pow(10, n) - 1;
-
     while (i > 0) {
         let j = i;
         while (j > 0) {
