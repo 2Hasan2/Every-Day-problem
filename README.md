@@ -1,2 +1,1 @@
 # Every Day problem
- 
