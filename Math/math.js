@@ -522,15 +522,31 @@ String.prototype.RomanToDec = function () {
 }
 
 function DegToRad(deg) {
+    /**
+     * @description - DegToRad is a function that takes 1 parameter:
+     * @param {number} deg
+     * @return {number} - radian representation of deg;
+     */
     return (deg * Math.PI) / 180;
 
 }
 
 function RadToDeg(rad) {
+    /**
+     * @description - RadToDeg is a function that takes 1 parameter:
+     * @param {number} rad
+     * @return {number} - degree representation of rad;
+     */
     return (rad * 180) / Math.PI;
 }
 
 function Rect(r, t) {
+    /**
+     * @description - Rect is a function that takes 2 parameters:
+     * @param {number} r
+     * @param {number} t
+     * @return {object} - object with x and y properties;
+     */
     t = DegToRad(t);
     let x = r * Math.cos(t);
     let y = r * Math.sin(t);
@@ -538,7 +554,109 @@ function Rect(r, t) {
 }
 
 function Pol(x, y) {
+    /**
+     * @description - Pol is a function that takes 2 parameters:
+     * @param {number} x
+     * @param {number} y
+     * @return {object} - object with r and t properties;
+     */
     const r = Math.sqrt(x * x + y * y);
     const t = RadToDeg(Math.atan2(y, x));
     return { r, t };
+}
+
+// RanInt function
+function RanInt(from, to) {
+    /**
+     * @description - RanInt is a function that takes 2 parameters:
+     * @param {number} from
+     * @param {number} to
+     * @return {number} - random integer between from and to;
+     */
+    return Math.floor(Math.random() * (to - from + 1)) + from;
+}
+
+// RanFloat function
+function RanFloat(from, to) {
+    /**
+     * @description - RanFloat is a function that takes 2 parameters:
+     * @param {number} from
+     * @param {number} to
+     * @return {number} - random float between from and to;
+     */
+    return Math.random() * (to - from) + from;
+}
+
+// RanBool function
+function RanBool() {
+    /**
+     * @description - RanBool is a function that takes 0 parameters:
+     * @return {boolean} - random boolean;
+     */
+    return Math.random() < 0.5;
+}
+
+// RanArray function
+function RanArray(arr) {
+    /**
+     * @description - RanArray is a function that takes 1 parameter:
+     * @param {array} arr
+     * @return {any} - random element of arr;
+     */
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// RanString function
+function RanString(length) {
+    /**
+     * @description - RanString is a function that takes 1 parameter:
+     * @param {number} length
+     * @return {string} - random string of length length;
+     */
+    let res = '';
+    for (let i = 0; i < length; i++) {
+        // string from lowercase letters and numbers and uppercase letters
+        res += RanArray([RanChar('a', 'z'), RanChar('A', 'Z'), RanChar('0', '9')]);
+    }
+    return res;
+}
+
+// RanChar function
+function RanChar(from, to) {
+    /**
+     * @description - RanChar is a function that takes 2 parameters:
+     * @param {string} from
+     * @param {string} to
+     * @return {string} - random character between from and to;
+     */
+    return String.fromCharCode(RanInt(from.charCodeAt(0), to.charCodeAt(0)));
+}
+
+
+// Destance 2D function
+function Distance2D({ x1, y1 }, { x2, y2 }) {
+    /**
+     * @description - Distance2D is a function that takes 4 parameters:
+     * @param {number} x1
+     * @param {number} y1
+     * @param {number} x2
+     * @param {number} y2
+     * @return {number} - distance between (x1, y1) and (x2, y2);
+     */
+    return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
+}
+
+// Destance 3D function
+function Distance3D({ x1, y1, z1 }, { x2, y2, z2 }) {
+    /**
+     * @description - Distance3D is a function that takes 6 parameters:
+     * @param {number} x1
+     * @param {number} y1
+     * @param {number} z1
+     * @param {number} x2
+     * @param {number} y2
+     * @param {number} z2
+     * @return {number} - distance between (x1, y1, z1) and (x2, y2, z2);
+     */
+    return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2) ** 2);
 }
