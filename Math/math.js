@@ -529,3 +529,16 @@ function DegToRad(deg) {
 function RadToDeg(rad) {
     return (rad * 180) / Math.PI;
 }
+
+function Rect(r, t) {
+    t = DegToRad(t);
+    let x = r * Math.cos(t);
+    let y = r * Math.sin(t);
+    return { x, y };
+}
+
+function Pol(x, y) {
+    const r = Math.sqrt(x * x + y * y);
+    const t = RadToDeg(Math.atan2(y, x));
+    return { r, t };
+}
