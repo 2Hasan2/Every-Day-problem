@@ -660,3 +660,15 @@ function Distance3D({ x1, y1, z1 }, { x2, y2, z2 }) {
      */
     return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2) ** 2);
 }
+
+// Fibonacci function
+function Fibonacci(n) {
+    /**
+     * @description - Fibonacci is a function that takes 1 parameter:
+     * @param {number} n
+     * @return {number} - n-th fibonacci number;
+     */
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
