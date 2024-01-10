@@ -1,9 +1,23 @@
-// If the number is even, divide it by 2.
-// If the number is odd, multiply it by 3 and then add 1.
-// Repeat these steps until the sequence reaches 1.
-
 function longestCollatzSequence(limit) {
+    let longest = 0;
+    let longestStart = 0;
 
+    for (let i = 1; i < limit; i++) {
+        let count = 1;
+        let n = i;
+
+        while (n > 1) {
+            n = n % 2 === 0 ? n / 2 : 3 * n + 1;
+            count++;
+        }
+
+        if (count > longest) {
+            longest = count;
+            longestStart = i;
+        }
+    }
+
+    return longestStart;
 }
 
-console.log(longestCollatzSequence(14));
+console.log(longestCollatzSequence(1000000));
