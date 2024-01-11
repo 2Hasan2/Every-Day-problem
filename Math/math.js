@@ -1,34 +1,34 @@
+/**
+ * @description - Dsum is a function that takes 3 parameters:
+ * @param {number} from
+ * @param {number} to
+ * @param {function} func
+ * @return {number} - sum of func(x) from x = from to x = to;
+ */
 function Dsum(from, to, func) {
-    /**
-     * @description - Dsum is a function that takes 3 parameters:
-     * @param {number} from
-     * @param {number} to
-     * @param {function} func
-     * @return {number} - sum of func(x) from x = from to x = to;
-     */
     if (from > to) [from, to] = [to, from];
     return Array.from({ length: to - from + 1 }, (_, i) => func(i + from)).reduce((acc, val) => acc + val, 0);
 }
 
+/**
+ * @description - Dprod is a function that takes 3 parameters:
+ * @param {number} from
+ * @param {number} to
+ * @param {function} func
+ * @return {number} - product of func(x) from x = from to x = to;
+ */
 function Dprod(from, to, func) {
-    /**
-     * @description - Dprod is a function that takes 3 parameters:
-     * @param {number} from
-     * @param {number} to
-     * @param {function} func
-     * @return {number} - product of func(x) from x = from to x = to;
-     */
     if (from > to) [from, to] = [to, from];
     return Array.from({ length: to - from + 1 }, (_, i) => func(i + from)).reduce((acc, val) => acc * val, 1);
 }
 
+/**
+ * @description - GCD is a function that takes 2 parameters:
+ * @param {number} from
+ * @param {number} to
+ * @return {number} - greatest common divisor of numbers from 1 to n;
+ */
 function GCD(from, to) {
-    /**
-     * @description - GCD is a function that takes 2 parameters:
-     * @param {number} from
-     * @param {number} to
-     * @return {number} - greatest common divisor of numbers from 1 to n;
-     */
     if (from > to) [from, to] = [to, from];
     let res = 1;
     for (let i = from; i <= to; i++) {
@@ -40,13 +40,13 @@ function GCD(from, to) {
     return res;
 }
 
+/**
+ * @description - LCM is a function that takes 2 parameters:
+ * @param {number} from
+ * @param {number} to
+ * @return {number} - least common multiple of numbers from 1 to n;
+ */
 function LCM(from, to) {
-    /**
-     * @description - LCM is a function that takes 2 parameters:
-     * @param {number} from
-     * @param {number} to
-     * @return {number} - least common multiple of numbers from 1 to n;
-     */
     if (from > to) [from, to] = [to, from];
     let res = 1;
     for (let i = from; i <= to; i++) {
@@ -55,25 +55,25 @@ function LCM(from, to) {
     return res;
 }
 
+/**
+ * @description - isPalindrome is a function that takes 1 parameter:
+ * @param {number}
+ * @return {boolean} - true if n is a palindrome, false otherwise;
+ */
 Number.prototype.isPalindrome = function () {
-    /**
-     * @description - isPalindrome is a function that takes 1 parameter:
-     * @param {number}
-     * @return {boolean} - true if n is a palindrome, false otherwise;
-     */
     let n = this.toString();
     let reversed = n.split('').reverse().join('');
     return n === reversed;
 }
 
 
+/**
+ * @description - Finds the number that is the index-th number in the sequence satisfying the given function.
+ * @param {number} index - The index of the number to find.
+ * @param {function} func - The condition that the numbers in the sequence must satisfy.
+ * @return {number} - The number that meets the condition and is at the specified index in the sequence.
+ */
 function findNthInSequence(index, func) {
-    /**
-     * @description - Finds the number that is the index-th number in the sequence satisfying the given function.
-     * @param {number} index - The index of the number to find.
-     * @param {function} func - The condition that the numbers in the sequence must satisfy.
-     * @return {number} - The number that meets the condition and is at the specified index in the sequence.
-     */
     let res = [];
     let i = 0;
     while (res.length - 1 < index) {
@@ -83,12 +83,12 @@ function findNthInSequence(index, func) {
     return res[index];
 }
 
+/**
+ * @description - isPrime is a function that takes 1 parameter:
+ * @param {number} n
+ * @return {boolean} - true if n is prime, false otherwise;
+ */
 Number.prototype.isPrime = function () {
-    /**
-     * @description - isPrime is a function that takes 1 parameter:
-     * @param {number} n
-     * @return {boolean} - true if n is prime, false otherwise;
-     */
     if (this < 2) return false;
     if (this === 2) return true;
     if (this % 2 === 0) return false;
@@ -100,14 +100,11 @@ Number.prototype.isPrime = function () {
     return true;
 }
 
-
-// nPr and nCr functions use prototype functions of numbers.
-
+/**
+ * @description - factorial is a function that takes 1 parameter:
+ * @return {number} - factorial of n;
+ */
 Number.prototype.factorial = function () {
-    /**
-     * @description - factorial is a function that takes 1 parameter:
-     * @return {number} - factorial of n;
-     */
     let res = 1;
     for (let i = 1; i <= this; i++) {
         res *= i;
@@ -115,32 +112,30 @@ Number.prototype.factorial = function () {
     return res;
 }
 
-// use nPr and nCr functions with numbers.
 
+/**
+ * @description - nPr is a function that takes 1 parameter:
+ * @param {number} r
+ * @return {number} - number of permutations of n things taken r at a time;
+ */
 Number.prototype.P = function (r) {
-    /**
-     * @description - nPr is a function that takes 1 parameter:
-     * @param {number} r
-     * @return {number} - number of permutations of n things taken r at a time;
-     */
     return this.factorial() / (this - r).factorial();
 }
 
+/**
+ * @description - nCr is a function that takes 1 parameter:
+ * @param {number} r
+ * @return {number} - number of combinations of n things taken r at a time;
+ */
 Number.prototype.C = function (r) {
-    /**
-     * @description - nCr is a function that takes 1 parameter:
-     * @param {number} r
-     * @return {number} - number of combinations of n things taken r at a time;
-     */
     return this.P(r) / r.factorial();
 }
 
-// use isPandigital function with numbers.
+/**
+ * @description - isPandigital is a function that takes 1 parameter:
+ * @return {boolean} - true if n is pandigital, false otherwise;
+ */
 Number.prototype.isPandigital = function () {
-    /**
-     * @description - isPandigital is a function that takes 1 parameter:
-     * @return {boolean} - true if n is pandigital, false otherwise;
-     */
     let str = this.toString();
     let digits = str.split('').map(x => +x);
     let set = new Set(digits);
@@ -150,12 +145,11 @@ Number.prototype.isPandigital = function () {
 }
 
 
-// use Factorization function with numbers.
+/**
+ * @description - factorization is a function that takes 1 parameter:
+ * @return {array} - array of prime factors of n;
+ */
 Number.prototype.factorization = function () {
-    /**
-     * @description - factorization is a function that takes 1 parameter:
-     * @return {array} - array of prime factors of n;
-     */
     let n = this;
     let res = [];
     let i = 2;
@@ -170,12 +164,11 @@ Number.prototype.factorization = function () {
     return res;
 }
 
-// use properDivisors function with numbers.
+/**
+ * @description - properDivisors is a function that takes 1 parameter:
+ * @return {array} - array of proper divisors of n;
+ */
 Number.prototype.Divisors = function () {
-    /**
-     * @description - properDivisors is a function that takes 1 parameter:
-     * @return {array} - array of proper divisors of n;
-     */
     let res = [];
     for (let i = 1; i < this; i++) {
         if (this % i === 0) res.push(i);
@@ -183,42 +176,38 @@ Number.prototype.Divisors = function () {
     return res;
 }
 
-// isAbundant function uses properDivisors function with numbers.
+/**
+ * @description - isAbundant is a function that takes 1 parameter:
+ * @return {boolean} - true if n is abundant, false otherwise;
+ */
 Number.prototype.isAbundant = function () {
-    /**
-     * @description - isAbundant is a function that takes 1 parameter:
-     * @return {boolean} - true if n is abundant, false otherwise;
-     */
     let sum = this.Divisors().reduce((acc, val) => acc + val, 0);
     return sum > this;
 }
 
-// isDeficient function uses properDivisors function with numbers.
+/**
+ * @description - isDeficient is a function that takes 1 parameter:
+ * @return {boolean} - true if n is deficient, false otherwise;
+ */
 Number.prototype.isDeficient = function () {
-    /**
-     * @description - isDeficient is a function that takes 1 parameter:
-     * @return {boolean} - true if n is deficient, false otherwise;
-     */
     let sum = this.Divisors().reduce((acc, val) => acc + val, 0);
     return sum < this;
 }
 
-// isPerfect function uses properDivisors function with numbers.
+/**
+ * @description - isPerfect is a function that takes 1 parameter:
+ * @return {boolean} - true if n is perfect, false otherwise;
+ */
 Number.prototype.isPerfect = function () {
-    /**
-     * @description - isPerfect is a function that takes 1 parameter:
-     * @return {boolean} - true if n is perfect, false otherwise;
-     */
     let sum = this.Divisors().reduce((acc, val) => acc + val, 0);
     return sum === this;
 }
 
-// DecimalToBinary function uses properDivisors function with numbers.
+/**
+ * @description - DecimalToBinary is a function that takes 1 parameter:
+ * @return {number} - binary representation of n;
+ */
 Number.prototype.DecToBin = function () {
-    /**
-     * @description - DecimalToBinary is a function that takes 1 parameter:
-     * @return {number} - binary representation of n;
-     */
     let n = this;
     let res = [];
     while (n > 0) {
@@ -228,12 +217,11 @@ Number.prototype.DecToBin = function () {
     return res.reverse().join('');
 }
 
-// DecimalToOctal function uses properDivisors function with numbers.
+/**
+ * @description - DecimalToOctal is a function that takes 1 parameter:
+ * @return {number} - octal representation of n;
+ */
 Number.prototype.DecToOct = function () {
-    /**
-     * @description - DecimalToOctal is a function that takes 1 parameter:
-     * @return {number} - octal representation of n;
-     */
     let n = this;
     let res = [];
     while (n > 0) {
@@ -243,12 +231,11 @@ Number.prototype.DecToOct = function () {
     return res.reverse().join('');
 }
 
-// DecimalToHexadecimal function uses properDivisors function with numbers.
+/**
+ * @description - DecimalToHexadecimal is a function that takes 1 parameter:
+ * @return {number} - hexadecimal representation of n;
+ */
 Number.prototype.DecToHex = function () {
-    /**
-     * @description - DecimalToHexadecimal is a function that takes 1 parameter:
-     * @return {number} - hexadecimal representation of n;
-     */
     let n = this;
     let res = [];
     while (n > 0) {
@@ -261,13 +248,12 @@ Number.prototype.DecToHex = function () {
     }).join('');
 }
 
-// DecimalToBase function uses properDivisors function with numbers.
+/**
+ * @description - DecimalToBase is a function that takes 1 parameter:
+ * @param {number} base
+ * @return {number} - base representation of n;
+ */
 Number.prototype.DecToBase = function (base) {
-    /**
-     * @description - DecimalToBase is a function that takes 1 parameter:
-     * @param {number} base
-     * @return {number} - base representation of n;
-     */
     let n = this;
     let res = [];
     while (n > 0) {
@@ -280,12 +266,11 @@ Number.prototype.DecToBase = function (base) {
     }).join('');
 }
 
-// BinaryToDecimal function uses properDivisors function with numbers.
+/**
+ * @description - BinaryToDecimal is a function that takes 1 parameter:
+ * @return {number} - decimal representation of n;
+ */
 Number.prototype.BinToDec = function () {
-    /**
-     * @description - BinaryToDecimal is a function that takes 1 parameter:
-     * @return {number} - decimal representation of n;
-     */
     let n = this.toString();
     let res = 0;
     for (let i = 0; i < n.length; i++) {
@@ -294,12 +279,11 @@ Number.prototype.BinToDec = function () {
     return res;
 }
 
-// OctalToDecimal function uses properDivisors function with numbers.
+/**
+ * @description - OctalToDecimal is a function that takes 1 parameter:
+ * @return {number} - decimal representation of n;
+ */
 Number.prototype.OctToDec = function () {
-    /**
-     * @description - OctalToDecimal is a function that takes 1 parameter:
-     * @return {number} - decimal representation of n;
-     */
     let n = this.toString();
     let res = 0;
     for (let i = 0; i < n.length; i++) {
@@ -308,12 +292,11 @@ Number.prototype.OctToDec = function () {
     return res;
 }
 
-// HexadecimalToDecimal function uses properDivisors function with numbers.
+/**
+ * @description - HexadecimalToDecimal is a function that takes 1 parameter:
+ * @return {number} - decimal representation of n;
+ */
 Number.prototype.HexToDec = function () {
-    /**
-     * @description - HexadecimalToDecimal is a function that takes 1 parameter:
-     * @return {number} - decimal representation of n;
-     */
     let n = this.toString();
     let res = 0;
     for (let i = 0; i < n.length; i++) {
@@ -326,13 +309,11 @@ Number.prototype.HexToDec = function () {
     return res;
 }
 
-
-// use isTriangle function with numbers.
+/**
+ * @description - isTriangle is a function that takes 1 parameter:
+ * @return {boolean} - true if n is triangle, false otherwise;
+ */
 Number.prototype.isTriangle = function () {
-    /**
-     * @description - isTriangle is a function that takes 1 parameter:
-     * @return {boolean} - true if n is triangle, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -342,12 +323,11 @@ Number.prototype.isTriangle = function () {
     return n === 0;
 }
 
-// use isPentagonal function with numbers.
+/**
+ * @description - isPentagonal is a function that takes 1 parameter:
+ * @return {boolean} - true if n is pentagonal, false otherwise;
+ */
 Number.prototype.isPentagonal = function () {
-    /**
-     * @description - isPentagonal is a function that takes 1 parameter:
-     * @return {boolean} - true if n is pentagonal, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -357,12 +337,11 @@ Number.prototype.isPentagonal = function () {
     return n === 0;
 }
 
-// use isHexagonal function with numbers.
+/**
+ * @description - isHexagonal is a function that takes 1 parameter:
+ * @return {boolean} - true if n is hexagonal, false otherwise;
+ */
 Number.prototype.isHexagonal = function () {
-    /**
-     * @description - isHexagonal is a function that takes 1 parameter:
-     * @return {boolean} - true if n is hexagonal, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -372,12 +351,11 @@ Number.prototype.isHexagonal = function () {
     return n === 0;
 }
 
-// use isHeptagonal function with numbers.
+/**
+ * @description - isHeptagonal is a function that takes 1 parameter:
+ * @return {boolean} - true if n is heptagonal, false otherwise;
+ */
 Number.prototype.isHeptagonal = function () {
-    /**
-     * @description - isHeptagonal is a function that takes 1 parameter:
-     * @return {boolean} - true if n is heptagonal, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -387,13 +365,11 @@ Number.prototype.isHeptagonal = function () {
     return n === 0;
 }
 
-// use isOctagonal function with numbers.
-
+/**
+ * @description - isOctagonal is a function that takes 1 parameter:
+ * @return {boolean} - true if n is octagonal, false otherwise;
+ */
 Number.prototype.isOctagonal = function () {
-    /**
-     * @description - isOctagonal is a function that takes 1 parameter:
-     * @return {boolean} - true if n is octagonal, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -403,13 +379,11 @@ Number.prototype.isOctagonal = function () {
     return n === 0;
 }
 
-// use isSquare function with numbers.
-
+/**
+ * @description - isSquare is a function that takes 1 parameter:
+ * @return {boolean} - true if n is square, false otherwise;
+ */
 Number.prototype.isSquare = function () {
-    /**
-     * @description - isSquare is a function that takes 1 parameter:
-     * @return {boolean} - true if n is square, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -419,13 +393,11 @@ Number.prototype.isSquare = function () {
     return n === 0;
 }
 
-// use isCube function with numbers.
-
+/**
+ * @description - isCube is a function that takes 1 parameter:
+ * @return {boolean} - true if n is cube, false otherwise;
+ */
 Number.prototype.isCube = function () {
-    /**
-     * @description - isCube is a function that takes 1 parameter:
-     * @return {boolean} - true if n is cube, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -435,13 +407,11 @@ Number.prototype.isCube = function () {
     return n === 0;
 }
 
-// use isTriangular function with numbers.
-
+/**
+ * @description - isTriangular is a function that takes 1 parameter:
+ * @return {boolean} - true if n is triangular, false otherwise;
+ */
 Number.prototype.isTriangular = function () {
-    /**
-     * @description - isTriangular is a function that takes 1 parameter:
-     * @return {boolean} - true if n is triangular, false otherwise;
-     */
     let n = this;
     let i = 1;
     while (n > 0) {
@@ -451,12 +421,11 @@ Number.prototype.isTriangular = function () {
     return n === 0;
 }
 
-// DecimalToRoman function uses properDivisors function with numbers.
+/**
+ * @description - DecimalToRoman is a function that takes 1 parameter:
+ * @return {string} - roman representation of n;
+ */
 Number.prototype.DecToRoman = function () {
-    /**
-     * @description - DecimalToRoman is a function that takes 1 parameter:
-     * @return {string} - roman representation of n;
-     */
     let n = this;
     let res = [];
     let roman = {
@@ -484,13 +453,11 @@ Number.prototype.DecToRoman = function () {
     return res.join('');
 }
 
-// RomanToDecimal function uses properDivisors function with numbers.
-
+/**
+ * @description - RomanToDecimal is a function that takes 1 parameter:
+ * @return {number} - decimal representation of n;
+ */
 String.prototype.RomanToDec = function () {
-    /**
-     * @description - RomanToDecimal is a function that takes 1 parameter:
-     * @return {number} - decimal representation of n;
-     */
     let n = this;
     let res = 0;
     let roman = {
@@ -521,98 +488,93 @@ String.prototype.RomanToDec = function () {
     return res;
 }
 
+/**
+ * @description - DegToRad is a function that takes 1 parameter:
+ * @param {number} deg
+ * @return {number} - radian representation of deg;
+ */
 function DegToRad(deg) {
-    /**
-     * @description - DegToRad is a function that takes 1 parameter:
-     * @param {number} deg
-     * @return {number} - radian representation of deg;
-     */
     return (deg * Math.PI) / 180;
 
 }
 
+/**
+ * @description - RadToDeg is a function that takes 1 parameter:
+ * @param {number} rad
+ * @return {number} - degree representation of rad;
+ */
 function RadToDeg(rad) {
-    /**
-     * @description - RadToDeg is a function that takes 1 parameter:
-     * @param {number} rad
-     * @return {number} - degree representation of rad;
-     */
     return (rad * 180) / Math.PI;
 }
 
+/**
+ * @description - Rect is a function that takes 2 parameters:
+ * @param {number} r
+ * @param {number} t
+ * @return {object} - object with x and y properties;
+ */
 function Rect(r, t) {
-    /**
-     * @description - Rect is a function that takes 2 parameters:
-     * @param {number} r
-     * @param {number} t
-     * @return {object} - object with x and y properties;
-     */
     t = DegToRad(t);
     let x = r * Math.cos(t);
     let y = r * Math.sin(t);
     return { x, y };
 }
 
+/**
+ * @description - Pol is a function that takes 2 parameters:
+ * @param {number} x
+ * @param {number} y
+ * @return {object} - object with r and t properties;
+ */
 function Pol(x, y) {
-    /**
-     * @description - Pol is a function that takes 2 parameters:
-     * @param {number} x
-     * @param {number} y
-     * @return {object} - object with r and t properties;
-     */
     const r = Math.sqrt(x * x + y * y);
     const t = RadToDeg(Math.atan2(y, x));
     return { r, t };
 }
 
-// RanInt function
+/**
+ * @description - RanInt is a function that takes 2 parameters:
+ * @param {number} from
+ * @param {number} to
+ * @return {number} - random integer between from and to;
+ */
 function RanInt(from, to) {
-    /**
-     * @description - RanInt is a function that takes 2 parameters:
-     * @param {number} from
-     * @param {number} to
-     * @return {number} - random integer between from and to;
-     */
     return Math.floor(Math.random() * (to - from + 1)) + from;
 }
 
-// RanFloat function
+/**
+ * @description - RanFloat is a function that takes 2 parameters:
+ * @param {number} from
+ * @param {number} to
+ * @return {number} - random float between from and to;
+ */
 function RanFloat(from, to) {
-    /**
-     * @description - RanFloat is a function that takes 2 parameters:
-     * @param {number} from
-     * @param {number} to
-     * @return {number} - random float between from and to;
-     */
     return Math.random() * (to - from) + from;
 }
 
-// RanBool function
+/**
+ * @description - RanBool is a function that takes 0 parameters:
+ * @return {boolean} - random boolean;
+ */
 function RanBool() {
-    /**
-     * @description - RanBool is a function that takes 0 parameters:
-     * @return {boolean} - random boolean;
-     */
     return Math.random() < 0.5;
 }
 
-// RanArray function
+/**
+ * @description - RanArray is a function that takes 1 parameter:
+ * @param {array} arr
+ * @return {any} - random element of arr;
+ */
 function RanArray(arr) {
-    /**
-     * @description - RanArray is a function that takes 1 parameter:
-     * @param {array} arr
-     * @return {any} - random element of arr;
-     */
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// RanString function
+/**
+ * @description - RanString is a function that takes 1 parameter:
+ * @param {number} length
+ * @return {string} - random string of length length;
+ */
 function RanString(length) {
-    /**
-     * @description - RanString is a function that takes 1 parameter:
-     * @param {number} length
-     * @return {string} - random string of length length;
-     */
     let res = '';
     for (let i = 0; i < length; i++) {
         // string from lowercase letters and numbers and uppercase letters
@@ -621,53 +583,48 @@ function RanString(length) {
     return res;
 }
 
-// RanChar function
+/**
+ * @description - RanChar is a function that takes 2 parameters:
+ * @param {string} from
+ * @param {string} to
+ * @return {string} - random character between from and to;
+ */
 function RanChar(from, to) {
-    /**
-     * @description - RanChar is a function that takes 2 parameters:
-     * @param {string} from
-     * @param {string} to
-     * @return {string} - random character between from and to;
-     */
     return String.fromCharCode(RanInt(from.charCodeAt(0), to.charCodeAt(0)));
 }
 
-
-// Destance 2D function
+/**
+ * @description - Distance2D is a function that takes 4 parameters:
+ * @param {number} x1
+ * @param {number} y1
+ * @param {number} x2
+ * @param {number} y2
+ * @return {number} - distance between (x1, y1) and (x2, y2);
+ */
 function Distance2D({ x1, y1 }, { x2, y2 }) {
-    /**
-     * @description - Distance2D is a function that takes 4 parameters:
-     * @param {number} x1
-     * @param {number} y1
-     * @param {number} x2
-     * @param {number} y2
-     * @return {number} - distance between (x1, y1) and (x2, y2);
-     */
     return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 }
 
-// Destance 3D function
+/**
+ * @description - Distance3D is a function that takes 6 parameters:
+ * @param {number} x1
+ * @param {number} y1
+ * @param {number} z1
+ * @param {number} x2
+ * @param {number} y2
+ * @param {number} z2
+ * @return {number} - distance between (x1, y1, z1) and (x2, y2, z2);
+ */
 function Distance3D({ x1, y1, z1 }, { x2, y2, z2 }) {
-    /**
-     * @description - Distance3D is a function that takes 6 parameters:
-     * @param {number} x1
-     * @param {number} y1
-     * @param {number} z1
-     * @param {number} x2
-     * @param {number} y2
-     * @param {number} z2
-     * @return {number} - distance between (x1, y1, z1) and (x2, y2, z2);
-     */
     return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2) ** 2);
 }
 
-// Fibonacci function
+/**
+ * @description - Fibonacci is a function that takes 1 parameter:
+ * @param {number} n
+ * @return {number} - n-th fibonacci number;
+ */
 function Fibonacci(n) {
-    /**
-     * @description - Fibonacci is a function that takes 1 parameter:
-     * @param {number} n
-     * @return {number} - n-th fibonacci number;
-     */
     if (n === 0) return 0;
     if (n === 1) return 1;
     return Fibonacci(n - 1) + Fibonacci(n - 2);
