@@ -9,7 +9,6 @@ function matrixRotation(matrix, r) {
 
 		const rotatedLayer = [];
 
-		// Extract the current layer into a 1D array
 		for (let i = layer; i < x - layer; i++) {
 			rotatedLayer.push(matrix[layer][i]);
 		}
@@ -23,10 +22,8 @@ function matrixRotation(matrix, r) {
 			rotatedLayer.push(matrix[i][layer]);
 		}
 
-		// Perform rotation on the 1D array
 		const rotated = [...rotatedLayer.slice(rotation), ...rotatedLayer.slice(0, rotation)];
 
-		// Assign the rotated values back to the matrix
 		let index = 0;
 		for (let i = layer; i < x - layer; i++) {
 			matrix[layer][i] = rotated[index++];
