@@ -7,32 +7,38 @@ function matrixRotation(matrix, r) {
 		const layerLength = (x - layer * 2) * 2 + (y - layer * 2 - 2) * 2;
 		const rotation = r % layerLength;
 
-		for (let rot = 0; rot < rotation; rot++) {
-			// Store the top-left element of the current layer
-			const temp = matrix[layer][layer];
+		const rotatedLayer = [];
 
-			// Rotate top row
-			for (let i = layer; i < x - layer - 1; i++) {
-				matrix[layer][i] = matrix[layer][i + 1];
-			}
+		// Extract the current layer into a 1D array
+		for (let i = layer; i < x - layer; i++) {
+			rotatedLayer.push(matrix[layer][i]);
+		}
+		for (let i = layer + 1; i < y - layer; i++) {
+			rotatedLayer.push(matrix[i][x - layer - 1]);
+		}
+		for (let i = x - layer - 2; i >= layer; i--) {
+			rotatedLayer.push(matrix[y - layer - 1][i]);
+		}
+		for (let i = y - layer - 2; i > layer; i--) {
+			rotatedLayer.push(matrix[i][layer]);
+		}
 
-			// Rotate right column
-			for (let i = layer; i < y - layer - 1; i++) {
-				matrix[i][x - layer - 1] = matrix[i + 1][x - layer - 1];
-			}
+		// Perform rotation on the 1D array
+		const rotated = [...rotatedLayer.slice(rotation), ...rotatedLayer.slice(0, rotation)];
 
-			// Rotate bottom row
-			for (let i = x - layer - 1; i > layer; i--) {
-				matrix[y - layer - 1][i] = matrix[y - layer - 1][i - 1];
-			}
-
-			// Rotate left column
-			for (let i = y - layer - 1; i > layer + 1; i--) {
-				matrix[i][layer] = matrix[i - 1][layer];
-			}
-
-			// Assign the stored top-left element to its new position
-			matrix[layer + 1][layer] = temp;
+		// Assign the rotated values back to the matrix
+		let index = 0;
+		for (let i = layer; i < x - layer; i++) {
+			matrix[layer][i] = rotated[index++];
+		}
+		for (let i = layer + 1; i < y - layer; i++) {
+			matrix[i][x - layer - 1] = rotated[index++];
+		}
+		for (let i = x - layer - 2; i >= layer; i--) {
+			matrix[y - layer - 1][i] = rotated[index++];
+		}
+		for (let i = y - layer - 2; i > layer; i--) {
+			matrix[i][layer] = rotated[index++];
 		}
 	}
 
@@ -47,5 +53,4 @@ let matrix = [
 	[9, 1, 1],
 ];
 
-
-matrixRotation(matrix, 3)
+matrixRotation(matrix, 3);
