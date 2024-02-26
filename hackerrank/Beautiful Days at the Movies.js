@@ -1,6 +1,6 @@
 function beautifulDays(i, j, k) {
 	let count = 0;
-	for (day = i; day <= j; day++) {
+	for (let day = i; day <= j; day++) {
 		 if (!(Math.abs(day - day.reverse()) % k)) {
 			count++
 		 }
