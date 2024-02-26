@@ -1,39 +1,17 @@
-// make square of a number with 10 ways
-
-// beginner way
-let num = 34
-console.log(num*num)
-
-// using function
-let square = num => num*num
-console.log(square(34))
-
-// using Math.pow
-console.log(Math.pow(34,2))
-
-// using ** operator
-console.log(34**2)
-
-// using eval
-console.log(eval('34*34'))
-
-
-// use prototype
-Number.prototype.square = function(){
-	return this*this
-}
-console.log((34).square())
-
-// use oop 
-class Square{
-	constructor(num){
-		this.num = num
+function plusMinus(arr) {
+	let ZeroCount = 0;
+	let PositiveCount = 0;
+	let NegativeCount = 0;
+	let len = arr.length
+	for (let i = 0; i < len; i++) {
+		if(arr[i]<0)NegativeCount++
+		else if (arr[i]>0)PositiveCount++
+		else ZeroCount++
 	}
-	square(){
-		return this.num*this.num
-	}
+	console.log(PositiveCount/len);
+	console.log(NegativeCount/len);
+	console.log(ZeroCount/len);
 }
 
-let sq = new Square(34)
-console.log(sq.square())
-
+console.log(plusMinus([10, 8,0,0,-10,4, -12]))
+	
