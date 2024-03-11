@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+import sys
+
+
+def factor(number):
+    factors = []
+    i = 1
+    while i * i <= number:
+        if number % i == 0:
+            factors.append(i)
+            complement = number // i
+            if complement != i:
+                factors.append(complement)
+        i += 1
+    return sorted(factors)
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: ./factors.py <number>")
+        sys.exit(1)
+
+    n = int(sys.argv[1])
+    print(factor(n))
+
+if __name__ == "__main__":
+    main()

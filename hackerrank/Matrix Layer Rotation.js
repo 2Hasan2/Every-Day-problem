@@ -39,15 +39,17 @@ function matrixRotation(matrix, r) {
 		}
 	}
 
+	// output
 	for (let i = 0; i < matrix.length; i++) {
 		console.log(matrix[i].join(' '));
 	}
 }
 
 let matrix = [
-	[1, 2, 3],
-	[5, 6, 7],
-	[9, 1, 1],
+	[1, 2, 3, 8],
+	[5, 6, 7, 6],
+	[9, 1, 1, 5],
+	[9, 1, 1, 5],
 ];
 
 matrixRotation(matrix, 3);

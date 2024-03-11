@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+import sys
+
+def sieve_of_eratosthenes(limit):
+    primes = [True] * (limit + 1)
+    primes[0] = primes[1] = False
+    p = 2
+    while p * p <= limit:
+        if primes[p]:
+            for i in range(p * p, limit + 1, p):
+                primes[i] = False
+        p += 1
+    return [i for i in range(limit + 1) if primes[i]]
+
+def print_primes_up_to(limit):
+    prime_numbers = sieve_of_eratosthenes(limit)
+    for prime in prime_numbers:
+        print(prime)
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: ./prime <upper_limit>")
+        sys.exit(1)
+    
+    try:
+        upper_limit = int(sys.argv[1])
+        print_primes_up_to(upper_limit)
+    except ValueError:
+        print("Please enter a valid integer for the upper limit.")
+
+if __name__ == "__main__":
+    main()
