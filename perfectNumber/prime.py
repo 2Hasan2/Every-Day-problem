@@ -12,21 +12,14 @@ def sieve_of_eratosthenes(limit):
         p += 1
     return [i for i in range(limit + 1) if primes[i]]
 
-def print_primes_up_to(limit):
-    prime_numbers = sieve_of_eratosthenes(limit)
-    for prime in prime_numbers:
-        print(prime)
+def prime(upper_limit):
+    primes = sieve_of_eratosthenes(upper_limit)
+    return primes;
 
-def main():
+    
+if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: ./prime <upper_limit>")
         sys.exit(1)
-    
-    try:
-        upper_limit = int(sys.argv[1])
-        print_primes_up_to(upper_limit)
-    except ValueError:
-        print("Please enter a valid integer for the upper limit.")
-
-if __name__ == "__main__":
-    main()
+    upper_limit = int(sys.argv[1])
+    print(prime(upper_limit))
