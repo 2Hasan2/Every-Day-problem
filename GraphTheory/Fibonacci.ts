@@ -21,5 +21,3 @@ const fib2 = (n: number): number => {
 
 console.log(fib(1_000_000));
 console.log(fib2(1_000_000));
-
-// console.log(fib(6));
