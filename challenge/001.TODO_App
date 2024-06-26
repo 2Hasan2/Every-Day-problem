@@ -1,0 +1,90 @@
+Sure! Below is a `README.md` file documenting the To-Do List application problem.
+
+```markdown
+# To-Do List Application
+
+## Description
+
+This project is a simple To-Do List application built with HTML, CSS, and JavaScript. It allows users to add, delete, and mark tasks as completed. The tasks are managed in an array of objects, and the application dynamically updates the task list in the DOM.
+
+## Features
+
+1. **Add a New Task**: Users can input a new task and add it to the list.
+2. **Delete a Task**: Users can remove a task from the list.
+3. **Mark a Task as Completed**: Users can mark a task as completed or undo the completion.
+4. **Display All Tasks**: The application displays all tasks, indicating which ones are completed.
+
+## Structure
+
+- **HTML**: Provides the structure of the application.
+- **CSS**: Adds basic styling to the application.
+- **JavaScript**: Manages the tasks and updates the DOM.
+
+## Task Object
+
+Each task is represented as an object with the following properties:
+- `id`: A unique identifier for the task.
+- `description`: A string describing the task.
+- `completed`: A boolean indicating whether the task is completed.
+
+## Code
+
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="New task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+    // you can implement your logic here... you can use oop or functional programming
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
+
+        function addTask() {
+        }
+
+        function deleteTask(taskId) {
+        }
+
+        function toggleTaskCompletion(taskId) {
+        }
+
+        function renderTasks() {
+        }
+    </script>
+</body>
+</html>
+```
+
+## How to Use
+
+1. Open the `index.html` file in a web browser.
+2. Enter a new task in the input field and click "Add Task".
+3. Click "Complete" to mark a task as completed or "Undo" to mark it as incomplete.
+4. Click "Delete" to remove a task from the list.
+
+## License
+
+This project is licensed under the MIT License.
+```
+
+This `README.md` file provides a comprehensive overview of the To-Do List application, including its features, structure, and usage instructions.
