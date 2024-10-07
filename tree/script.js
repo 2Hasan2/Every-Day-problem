@@ -1,5 +1,5 @@
 
-function solve(n, d) {
+function solve (n, d) {
   if (d === 1) {
     const temp = pow(2, n) - 2;
     return mul(add(temp, 998244353), 2);
@@ -20,12 +20,12 @@ function solve(n, d) {
 }
 
 // Define the `add` function
-function add(a, b) {
+function add (a, b) {
   return (a + b) % 998244353;
 }
 
 // Define the `mul` function
-function mul(a, b) {
+function mul (a, b) {
   let r = 0;
   let base = a;
   while (b) {
@@ -39,7 +39,7 @@ function mul(a, b) {
 }
 
 // Define the `pow` function
-function pow(a, b) {
+function pow (a, b) {
   let r = 1;
   let base = a;
   while (b) {
@@ -51,6 +51,5 @@ function pow(a, b) {
   }
   return r;
 }
-
 
 console.log(solve(14142, 17320));

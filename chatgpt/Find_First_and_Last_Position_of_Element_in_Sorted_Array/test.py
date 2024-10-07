@@ -1,8 +1,9 @@
 import unittest
 from app import search_range
 
+
 class TestSearchRange(unittest.TestCase):
-    
+
     def test_case_1(self):
         # Target is present multiple times
         self.assertEqual(search_range([5, 7, 8, 8, 8, 9, 10], 8), [2, 4])
@@ -43,5 +44,6 @@ class TestSearchRange(unittest.TestCase):
         # Target is greater than all elements in the array
         self.assertEqual(search_range([1, 2, 3, 4, 5], 10), [-1, -1])
 
+
 # Run the tests
-unittest.main(argv=[''], verbosity=2, exit=False)
+unittest.main(argv=[""], verbosity=2, exit=False)

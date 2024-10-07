@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 from typing import List
+
+
 class Solution(object):
 
     def findClosestNumber(self, nums: List[int]) -> int:

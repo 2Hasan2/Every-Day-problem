@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import random
 
+
 def is_prime(num, k=5):
     if num <= 1:
         return False
@@ -31,6 +32,7 @@ def is_prime(num, k=5):
 
     return True
 
+
 def get_first_20_perfect_numbers(num):
     perfect_numbers = []
     p = 2
@@ -43,6 +45,5 @@ def get_first_20_perfect_numbers(num):
     return perfect_numbers
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     get_first_20_perfect_numbers(20)
-  

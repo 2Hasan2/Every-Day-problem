@@ -5,22 +5,22 @@
  * function callback(property, value, oldValue)
  * @returns {Proxy} watchedObject
  */
-function WatchedObject(initialValue, callback = console.log) {
-	  let watchedObject = new Proxy({ value: initialValue }, {
-		set: function(target, property, value) {
+function WatchedObject (initialValue, callback = console.log) {
+	  const watchedObject = new Proxy({ value: initialValue }, {
+    set: function (target, property, value) {
 		  if (target[property] !== value) {
-			const oldValue = target[property];
-			target[property] = value;
-			callback(property, value, oldValue);
+        const oldValue = target[property];
+        target[property] = value;
+        callback(property, value, oldValue);
 	  }
 	  return true;
-	},
-	get: function(target, property) {
+    },
+    get: function (target, property) {
 		  if (property === 'getValue') {
-			return () => target.value;
+        return () => target.value;
 	  }
 	  return target[property];
-	}
+    }
   });
   return watchedObject;
 }
@@ -30,10 +30,10 @@ function WatchedObject(initialValue, callback = console.log) {
  * @param {Array<function>} functions - an array of functions to be executed
  * @returns {Promise} a Promise that resolves when all functions are executed
  */
-function executeParallel(functions) {
-	const promises = functions.map(func => func());
-  
-	return Promise.all(promises);
+function executeParallel (functions) {
+  const promises = functions.map(func => func());
+
+  return Promise.all(promises);
 }
 
 /**
@@ -41,6 +41,6 @@ function executeParallel(functions) {
  * @param {Array<function>} functions - an array of functions to be executed
  * @returns {Promise} a Promise that resolves when all functions are executed
  */
-function executeSequential(functions) {
-	return functions.reduce((promise, func) => promise.then(() => func()), Promise.resolve());
+function executeSequential (functions) {
+  return functions.reduce((promise, func) => promise.then(() => func()), Promise.resolve());
 }

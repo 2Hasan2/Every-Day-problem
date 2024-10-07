@@ -15,20 +15,21 @@ import sys
 #  3. INTEGER a -> apple tree position
 #  4. INTEGER b -> orange tree position
 #  5. INTEGER_ARRAY apples -> apples position
-#  6. INTEGER_ARRAY oranges -> oranges position 
+#  6. INTEGER_ARRAY oranges -> oranges position
 #
+
 
 def countApplesAndOranges(s, t, a, b, apples, oranges):
     def counter(fruits, tree):
-        return len([(tree + fruit) for fruit in fruits if (tree + fruit) in range(s, t +1)])
+        return len(
+            [(tree + fruit) for fruit in fruits if (tree + fruit) in range(s, t + 1)]
+        )
 
     print(counter(apples, a))
     print(counter(oranges, b))
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     first_multiple_input = input().rstrip().split()
 
     s = int(first_multiple_input[0])

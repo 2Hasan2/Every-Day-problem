@@ -1,1 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+*.egg-info/
+*.egg
+dist/
+build/
+*.db
+*.sqlite3
+
+# Node.js
 node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.pnpm-debug.log
+.env
+*.tgz
+*.lock
+dist/
+build/
+
+# C
+*.o
+*.out
+*.exe
+*.obj
+*.dSYM/
+*.stackdump
+
+# C#
+bin/
+obj/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+# C++
+*.o
+*.out
+*.exe
+*.ilk
+*.idb
+*.pdb
+*.lib
+*.so
+*.dll
+*.dSYM/
+*.stackdump
+
+# Miscellaneous
+*.log
+*.tmp
+*.temp
+*.swp
+*.DS_Store
