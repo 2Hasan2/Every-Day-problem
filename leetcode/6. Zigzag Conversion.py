@@ -2,26 +2,27 @@ def printList(arr: list):
     for ele in arr:
         print(ele)
 
+
 def wave_value(num: int, index: int) -> int:
     wave_length = 2 * num
-    
+
     position = index % wave_length
-    
+
     if position <= num:
-        return position 
+        return position
     else:
         return wave_length - position
 
 
 def convert(s: str, numRows: int) -> str:
-    strings = ["" for _ in range(numRows) ]
+    strings = ["" for _ in range(numRows)]
     for i in range(len(s)):
         level = wave_value(numRows - 1, i)
         strings[level] += s[i]
     return "".join(strings)
 
-print(convert("abcdefg", 4))
 
+print(convert("abcdefg", 4))
 
 
 # def wave_value(num, index):
